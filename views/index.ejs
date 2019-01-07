@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>It's <%= kindOfDay %> !</h1>
+    <h2>start testing</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>The Simpsons</h3>
+                        <h3>Random Quote Generator</h3>
+                    </div>
+                    <div class="loader">
+                            <img class="card-img-top d-block img-fluid" id="gif" src="https://frinkiac.com/gif/S09E11/1170300/1176867.gif?b64lines=" width="400px" height="300px">
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">
+                                <span id="key">S09E11</span> " - " <a id="title" href="https://en.wikipedia.org/wiki/All_Singing,_All_Dancing" target="_blank">All Singing, All Dancing</a>
+                        </h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Episode aired: 4-Jan-98</h6>
+                        <div class="card-block">
+                            <p id="sub0" class="card-text">HEY, MARGE, REMEMBER WHEN WE USED TO MAKE OUT</p>
+                            <p id="sub1" class="card-text">TO THIS HYMN?</p>
+                            <p id="sub2" class="card-text">( giggling) SHH.</p>
+                            <button type="submit" id="generator" class="btn btn-success d-block">Ask Frink</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>
