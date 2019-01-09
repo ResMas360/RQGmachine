@@ -8,11 +8,13 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <h1>It's <%= kindOfEpisode %> !</h1>
-    <h1>It's <%= kindOfStartTime %> !</h1>
-    <h1>It's <%= KindofEndTime %> !</h1>
+    <h1>From episode <%= kindOfEpisode %> - <%= episodeTitle %> !</h1>
+
     <div class="loader">
             <img class="card-img-top d-block img-fluid" id="gif" src="https://frinkiac.com/gif/<%= kindOfEpisode %>/<%= kindOfStartTime %>/<%= KindofEndTime %>.gif?b64lines=" width="400px" height="300px">
     </div>
+    <h1><%= firstSubtitle %></h1>
+    <h1><%= secondSubtitle %></h1>
+    <h1><%= thirdSubtitle %></h1>
 </body>
 </html>

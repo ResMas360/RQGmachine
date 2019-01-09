@@ -38,7 +38,7 @@ app.get("/", function(req, res){
         episodeDetails = result;
         console.log("Getting episode details for the RQG machine");
         // passing JSON info to variables used in the index.ejs VIEW
-        res.render("index", {kindOfEpisode: episodeDetails.Episode.Key, kindOfStartTime: episodeDetails.Subtitles[0].StartTimestamp, KindofEndTime: episodeDetails.Subtitles[2].EndTimestamp});
+        res.render("index", {episodeTitle: episodeDetails.Episode.Title, kindOfEpisode: episodeDetails.Episode.Key, kindOfStartTime: episodeDetails.Subtitles[0].StartTimestamp, KindofEndTime: episodeDetails.Subtitles[2].EndTimestamp, firstSubtitle: episodeDetails.Subtitles[0].Content, secondSubtitle: episodeDetails.Subtitles[1].Content, thirdSubtitle: episodeDetails.Subtitles[2].Content});
     }, function(err){
         console.log(err);
     })
