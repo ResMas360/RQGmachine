@@ -8,6 +8,9 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
+// allow static files to be read
+app.use(express.static("public"));
+
 // Requesting the JSON from the URL endpoint 
 // as a PROMISE and then parsing the BODY of the RESOLVE to get 
 // JSON values that will form the gif

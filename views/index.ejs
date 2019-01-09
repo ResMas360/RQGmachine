@@ -2,19 +2,19 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+	    <title>RGG machine</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
+
 <body>
     <h1>From episode <%= kindOfEpisode %> - <%= episodeTitle %> !</h1>
 
-    <div class="loader">
-            <img class="card-img-top d-block img-fluid" id="gif" src="https://frinkiac.com/gif/<%= kindOfEpisode %>/<%= kindOfStartTime %>/<%= KindofEndTime %>.gif?b64lines=" width="400px" height="300px">
+    <div class="box">
+            <img class="movie" id="gif" src="https://frinkiac.com/gif/<%= kindOfEpisode %>/<%= kindOfStartTime %>/<%= KindofEndTime %>.gif?b64lines=">
     </div>
-    <h1><%= firstSubtitle %></h1>
-    <h1><%= secondSubtitle %></h1>
-    <h1><%= thirdSubtitle %></h1>
+    <div class="box">
+    <p><%= firstSubtitle %></p>
+    <p><%= secondSubtitle %></p>
+    <p><%= thirdSubtitle %></p>
 </body>
 </html>
