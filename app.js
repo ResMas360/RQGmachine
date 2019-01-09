@@ -8,6 +8,9 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
+// Requesting the JSON from the URL endpoint 
+// as a PROMISE and then parsing the BODY of the RESOLVE to get 
+// JSON values that will form the gif
 function initialize(){
     var options = {
         url: 'https://frinkiac.com/api/random',
@@ -26,15 +29,16 @@ function initialize(){
     })
 }
 
+// initialize the server on PORT 3000
 app.get("/", function(req, res){
+    //Setting up a variable that contains the "result" from the
+    //initialize FUNCTION
     var initializePromise = initialize();
     initializePromise.then(function(result) {
-        userDetails = result;
-        console.log("Initialized user details");
-        res.render("index", {kindOfEpisode: userDetails.Episode.Key, kindOfStartTime: userDetails.Subtitles[0].StartTimestamp, KindofEndTime: userDetails.Subtitles[2].EndTimestamp});
-        //res.render("user", {kindOfEmail: userDetails.bio});
-        //console.log(userDetails)
-        //console.log(userDetails.login);
+        episodeDetails = result;
+        console.log("Getting episode details for the RQG machine");
+        // passing JSON info to variables used in the index.ejs VIEW
+        res.render("index", {kindOfEpisode: episodeDetails.Episode.Key, kindOfStartTime: episodeDetails.Subtitles[0].StartTimestamp, KindofEndTime: episodeDetails.Subtitles[2].EndTimestamp});
     }, function(err){
         console.log(err);
     })
