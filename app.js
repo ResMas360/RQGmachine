@@ -2,44 +2,42 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+var request = require("request");
 
 const app = express();
 
-// Declare variables
-var fs = require('fs'),
-    obj
-
-// Read the file and send to the callback
-fs.readFile('https://frinkiac.com/api/random', handleFile)
-
-// Write the callback function
-function handleFile(err, data) {
-    if (err) throw err
-    obj = JSON.parse(data)
-    // You can now play with your datas
-}
-
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({extended :true}));
-app.use(express.static("public"));
+function initialize(){
+    var options = {
+        url: 'https://frinkiac.com/api/random',
+        headers: {
+            'User-Agent': 'request'
+        }
+    };
+    return new Promise(function(resolve, reject) {
+        request.get(options, function(err, resp, body){
+            if (err) {
+                reject(err);
+            } else {
+                resolve(JSON.parse(body));
+            }
+        })
+    })
+}
 
 app.get("/", function(req, res){
-
-    var today = new Date();
-    var currentDay = today.getDay();
-
-    var options = {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'long'
-    };
-
-    var day = today.toLocaleDateString("en-US", options);
-
- 
-
-    res.render("index", {kindOfDay: day});
+    var initializePromise = initialize();
+    initializePromise.then(function(result) {
+        userDetails = result;
+        console.log("Initialized user details");
+        res.render("index", {kindOfEpisode: userDetails.Episode.Key, kindOfStartTime: userDetails.Subtitles[0].StartTimestamp, KindofEndTime: userDetails.Subtitles[2].EndTimestamp});
+        //res.render("user", {kindOfEmail: userDetails.bio});
+        //console.log(userDetails)
+        //console.log(userDetails.login);
+    }, function(err){
+        console.log(err);
+    })
 });
 
 app.listen(3000, function(){
