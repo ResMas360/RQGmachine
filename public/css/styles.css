@@ -6,15 +6,21 @@ body {
 }
 
 h1 {
-    color: #fff;
+    color: blacks;
     padding: 10px;
     text-align: center;
 }
 
+div {
+    display: block;
+}
+
 p {
-    color: #fff;
-    padding: 10px;
-    text-align: center;
+    color: black;
+    padding: 20px;
+    text-align: justify;
+    font-size: 20px;
+    font-weight: 200;
 }
 
 hr {
@@ -33,4 +39,12 @@ hr {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.box {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
