@@ -2,7 +2,9 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const os = require("os");
 var request = require("request");
+
 
 const app = express();
 
@@ -36,12 +38,13 @@ function initialize(){
 app.get("/", function(req, res){
     //Setting up a variable that contains the "result" from the
     //initialize FUNCTION
+    var conId = os.hostname();
     var initializePromise = initialize();
     initializePromise.then(function(result) {
         episodeDetails = result;
         console.log("Getting episode details for the RQG machine");
         // passing JSON info to variables used in the index.ejs VIEW
-        res.render("index", {episodeTitle: episodeDetails.Episode.Title, kindOfEpisode: episodeDetails.Episode.Key, kindOfStartTime: episodeDetails.Subtitles[0].StartTimestamp, KindofEndTime: episodeDetails.Subtitles[2].EndTimestamp, firstSubtitle: episodeDetails.Subtitles[0].Content, secondSubtitle: episodeDetails.Subtitles[1].Content, thirdSubtitle: episodeDetails.Subtitles[2].Content});
+        res.render("index", {dockConId: conId, episodeTitle: episodeDetails.Episode.Title, kindOfEpisode: episodeDetails.Episode.Key, kindOfStartTime: episodeDetails.Subtitles[0].StartTimestamp, KindofEndTime: episodeDetails.Subtitles[2].EndTimestamp, firstSubtitle: episodeDetails.Subtitles[0].Content, secondSubtitle: episodeDetails.Subtitles[1].Content, thirdSubtitle: episodeDetails.Subtitles[2].Content});
     }, function(err){
         console.log(err);
     })
