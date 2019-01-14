@@ -1,26 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
 
 body {
-    background-color: #f6c945;
     font-family: 'Gloria Hallelujah', cursive;
 }
 
 h1 {
-    color: blacks;
+    color: black;
     padding: 10px;
     text-align: center;
 }
 
-div {
-    display: block;
-}
-
 p {
-    color: black;
-    padding: 20px;
-    text-align: justify;
-    font-size: 20px;
-    font-weight: 200;
+    color:black;
+    padding: 0px;
+    text-align: center;
 }
 
 hr {
@@ -29,6 +23,13 @@ hr {
     border-color: blueviolet;
     border-width: 5px;
     width: 5%;
+}
+
+footer {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
@@ -41,10 +42,26 @@ hr {
     margin-right: auto;
 }
 
-.box {
-    max-width: 400px;
-    margin: 50px auto;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+.frink{
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    float: left;
+}
+
+.docker {
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    float: right;
+    
+}
+div.left{
+    float:left;    
+}
+
+div.right{
+    float: right;
+}
+div.mainbody{
+    background-color: #f6c945;
+
 }

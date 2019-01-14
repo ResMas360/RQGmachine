@@ -7,17 +7,23 @@
 </head>
 
 <body>
-    <h1>From episode <%= kindOfEpisode %> - <%= episodeTitle %> !</h1>
-
-    <h1> running on container <%= dockConId %> </h1>
-    <div class="box">
+    <div class="mainbody">
+        <h1>From episode <%= kindOfEpisode %> - <%= episodeTitle %> !</h1>
+        <div class="box">
             <img class="movie" id="gif" src="https://frinkiac.com/gif/<%= kindOfEpisode %>/<%= kindOfStartTime %>/<%= KindofEndTime %>.gif?b64lines=">
-    </div>
-    <div class="box">
-    <p><%= firstSubtitle %></p>
-    <p><%= secondSubtitle %></p>
-    <p><%= thirdSubtitle %></p>
+        </div>
+        <div class="box">
+            <p><%= firstSubtitle %></p>
+            <p><%= secondSubtitle %></p>
+            <p><%= thirdSubtitle %></p>
+        </div>
     </div>
 </body>
-<footer href="https://frinkiac.com/"> powered by frinkiac </footer>
+<footer>
+    <div>
+        <h5 class="frink"> Powered by <a href="https://frinkiac.com/"> <img src="images/Logo-frinkiac.png" title="frinkiac.com" width="5%" height="5%"></a>  and running on container <%= dockConId %> </h5>
+    </div>
+         
+
+</footer>
 </html>
